@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "654400667117",
+    "project_id": "scrapedart-40230",
+    "storage_bucket": "scrapedart-40230.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654400667117:android:286ff08cad320ab353fbe4",
+        "android_client_info": {
+          "package_name": "com.scrapweb.scrapingdart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654400667117-fdv3r3sbsg6adc0v8gcgm6sb25rrbdfn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1TPftNv1bf6TZytIvAEwBle9VrxycIgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654400667117-fdv3r3sbsg6adc0v8gcgm6sb25rrbdfn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
