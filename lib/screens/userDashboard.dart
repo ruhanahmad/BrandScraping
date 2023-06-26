@@ -192,6 +192,7 @@ import 'package:scrapingdart/screens/loginSigns.dart';
 import 'package:scrapingdart/screens/mapGoogle.dart';
 import 'package:scrapingdart/screens/userList.dart';
 import 'package:scrapingdart/screens/userProfile.dart';
+import 'package:scrapingdart/test.dart';
 // import 'package:carousel_slider/carousel_slider.dart';
 
 class UserDashboard extends StatefulWidget {
@@ -211,187 +212,233 @@ class _UserDashboardState extends State<UserDashboard> {
     Color light = Color(0xFFA5C9CA);
     Color extralight = Color(0xFFE7F6F2);
     Color extradark = Color(0xFF2C3333);
-
+     double _lowerValue = 20;
+  double _upperValue = 80;
+double _filterValue = 0.0; // Initial value for the filter
     return SafeArea(
       child: Scaffold(
+      
         backgroundColor: extralight,
-        body: Column(
-          children: [
-            Container(
-     
-              child: Column(
-                children: [
-                  Container(
-                    //   height: 300,
-                    //   width: MediaQuery.of(context).size.width,
-                    color: light,
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Text(
-                            "User Panel",
-                            style: TextStyle(color: extradark, fontSize: 20),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+
+              Container(
+             
+                child: 
+                Column(
+                  children: [
+
+                    Container(
+                      //   height: 300,
+                      //   width: MediaQuery.of(context).size.width,
+                      color: light,
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Text(
+                              "User Panel",
+                              style: TextStyle(color: extradark, fontSize: 20),
+                            ),
                           ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Container(
-                            height: 200,
-                            width: MediaQuery.of(context).size.width,
-                            color: extralight,
-                              child: Padding(
-                                padding: const EdgeInsets.all(08),
-                                child: Text(
-                                  "Welcome to Dis Nav!! This application is all about discounts on different brands and navigating it to listed brands. Here you can easily reach out to your best discounts destination without any hassale. Simple go to discounts and it will point out all the destinations having discounts info and the products having discount on the application.",
-                                  style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600,fontSize: 16),
+                          Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Container(
+                              height: 200,
+                              width: MediaQuery.of(context).size.width,
+                              color: extralight,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(08),
+                                  child: Text(
+                                    "Welcome to Dis Nav!! This application is all about discounts on different brands and navigating it to listed brands. Here you can easily reach out to your best discounts destination without any hassale. Simple go to discounts and it will point out all the destinations having discounts info and the products having discount on the application.",
+                                    style: TextStyle(color: Colors.black,fontWeight: FontWeight.w600,fontSize: 16),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        
-                      ],
+
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.all(30),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () async {
-                            await authService.getProfileData();
-                            Get.to(UserProfile());
-                          },
-                          child: Container(
-                            height: 180,
-                            width: 180,
-                            decoration: BoxDecoration(
-                              color: light,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(20),
-                                  child: Icon(
-                                    Icons.verified_user,
-                                    size: 100,
+
+                    
+                    SizedBox(height: 10),
+
+                    Padding(
+                      padding: const EdgeInsets.all(30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            onTap: () async {
+                              await authService.getProfileData();
+                              Get.to(UserProfile());
+                            },
+                            child: Container(
+                              height: 180,
+                              width: 180,
+                              decoration: BoxDecoration(
+                                color: light,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(20),
+                                    child: Icon(
+                                      Icons.verified_user,
+                                      size: 100,
+                                    ),
                                   ),
-                                ),
-                                Center(child: Text("Profile")),
-                              ],
+                                  Center(child: Text("Profile")),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(FirebaseGridViewTwo());
-                          },
-                          child: Container(
-                            height: 180,
-                            width: 180,
-                            decoration: BoxDecoration(
-                              color: light,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.all(20),
-                                  child: Icon(
-                                    Icons.location_city,
-                                    size: 100,
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(FirebaseGridViewTwo());
+                            },
+                            child: Container(
+                              height: 180,
+                              width: 180,
+                              decoration: BoxDecoration(
+                                color: light,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.all(20),
+                                    child: Icon(
+                                      Icons.location_city,
+                                      size: 100,
+                                    ),
                                   ),
-                                ),
-                                Center(child: Text("Discounts")),
-                              ],
+                                  Center(child: Text("Discounts")),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 0),
-                  Padding(
-                    padding: const EdgeInsets.all(30),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(FirebaseGridView());
-                          },
-                          child: Container(
-                            height: 180,
-                            width: 180,
-                            decoration: BoxDecoration(
-                              color: light,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.all(20),
-                                  child: Icon(
-                                    Icons.branding_watermark,
-                                    size: 100,
+                    const SizedBox(height: 0),
+                    Padding(
+                      padding: const EdgeInsets.all(30),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(FirebaseGridView());
+                            },
+                            child: Container(
+                              height: 180,
+                              width: 180,
+                              decoration: BoxDecoration(
+                                color: light,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.all(20),
+                                    child: Icon(
+                                      Icons.branding_watermark,
+                                      size: 100,
+                                    ),
                                   ),
-                                ),
-                                Center(child: Text("Discount Brands")),
-                              ],
+                                  Center(child: Text("Discount Brands")),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () async {
-                            await FirebaseAuth.instance.signOut();
-                            Get.to(LoginSigns());
-                          },
-                          child: Container(
-                            height: 180,
-                            width: 180,
-                            decoration: BoxDecoration(
-                              color: light,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(20),
-                                  child: Icon(
-                                    Icons.logout,
-                                    size: 100,
+                          GestureDetector(
+                            onTap: () async {
+                              await FirebaseAuth.instance.signOut();
+                              Get.to(LoginSigns());
+                            },
+                            child: Container(
+                              height: 180,
+                              width: 180,
+                              decoration: BoxDecoration(
+                                color: light,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(20),
+                                    child: Icon(
+                                      Icons.logout,
+                                      size: 100,
+                                    ),
                                   ),
-                                ),
-                                Center(child: Text("Logout")),
-                              ],
+                                  Center(child: Text("Logout")),
+                                ],
+                              ),
                             ),
                           ),
+                        ],
+                      ),
+                   
+                    ),
+                   const SizedBox(height: 0),
+                  
+                    GestureDetector(
+                      onTap: () async {
+                        // await FirebaseAuth.instance.signOut();
+                        // Get.to(LoginSigns());
+                                      Get.to(InboxScreen());
+                      },
+                      child: Container(
+                        height: 180,
+                        width: 180,
+                        decoration: BoxDecoration(
+                          color: light,
+                          borderRadius: BorderRadius.circular(15),
                         ),
-                      ],
-                    ),//kholo chat ki scree inbo_screen app main
-                  ),
-                 //cht open karo
-                ],
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Icon(
+                                Icons.chat_bubble,
+                                size: 100,
+                              ),
+                            ),
+                            Center(child: Text("Chat Support")),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-               GestureDetector(
-                          onTap: () async {
-                            // await FirebaseAuth.instance.signOut();
-                            // Get.to(ChatScreen());
-                         await   authService.getIDo(); 
-                               Get.to(InboxScreen());
-                          },
-                          child: 
-               Text("data"),
-                        ),
-          ],
+                 GestureDetector(
+                            onTap: () async {
+                              // await FirebaseAuth.instance.signOut();
+                              // Get.to(ChatScreen());
+                          //  await   authService.getIDo(); 
+                                 Get.to(FilterSliderBar());
+                            },
+                            child: 
+                 Text("data"),
+                          ),
+            ],
+          ),
         ),
       ),
+
     );
+    
   }
+  //  void applyFilter(double value) {
+
+  //   print('Applying filter with value: $value');
+  // }
 }
 
 //slider widget created onwwn

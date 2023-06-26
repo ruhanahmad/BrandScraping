@@ -117,11 +117,7 @@ class InboxScreen extends StatelessWidget {
                                     message: "",
                                     type: "",
                                     time: "");
-                                // thek hay ? yahan tak smjh aai ?
-                                // hm ny 2 admins ko get kr k show krva dia agr vaha 3 hngy to 3 show hngy
-// ye dop k liye nai bnai mene logic yaha jitne bhi honge atayjayn gay
-// ha jtny add kry gy sahe i got your point <3 Bas zyada pyar nai karna
-// haha acha thra krna ? chalein thora sa kar lein hehe ab next jo hay inki ids set karni hain
+                                
                                 DocumentSnapshot chatListSnapshot =
                                     adminsList[index];
                                 return StreamBuilder(

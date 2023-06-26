@@ -83,10 +83,7 @@ class ChatService {
         .where('users', arrayContains: FirebaseAuth.instance.currentUser!.email)
         .orderBy('lastTextTime', descending: true)
         .snapshots();
-        //ye login kaha ho raha ? dikhao zra 
-        // ye kya hay loing.dar loginOnly.dart ?aje
-        // namaz prh lu aik min >?
-        // amdin login kaha kar rahi ho ?
+     
   }
   //login karo
 //admin proper login nai horaha ? firebase auth se ?

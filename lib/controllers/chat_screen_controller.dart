@@ -23,10 +23,7 @@ class ChatScreenController extends GetxController {
   String chatId;
   final String userId;
   final String userName;
-//run karo
-// dekha hamari chat end to end encrypted hay
-//end to end encrypted b h ?yes dear bohat mehnat hui thi ye project karne men
-// woww bear wait abhi kaam poora nai hua 
+
   ChatScreenController(
       {required this.chatId, required this.userId, required this.userName});
 
