@@ -54,12 +54,10 @@ return productss;
 
   
 }
-
     Future<List<Product>> sapphire() async {
   final url = 'https://pk.sapphireonline.pk/pages/eid-bundles';
   final response = await http.get(Uri.parse(url));
   final document = parser.parse(response.body);
-  
   final divElements = document.querySelectorAll('div.t4s-col-6.t4s-col-md-3 > a[href]');
     List disC = [];
     final productss = divElements.map((labels)  {
@@ -73,14 +71,8 @@ return productss;
       print('$link: $text  $head' );
      
       return Product(title: text, link: link!, sale: text);
-   
-
     }).toList();
-
 return productss;
-
-
-  
 }
 
     List disC = [];
@@ -254,7 +246,7 @@ final productWrappers = document.querySelectorAll('.product-item-info.type3');
 
 
      Future<List<Product>> gulAhmad() async {
-    final response = await http.get(Uri.parse('https://www.gulahmedshop.com/sale?discount_percentage=40'));
+    final response = await http.get(Uri.parse('https://www.gulahmedshop.com/sale?discount_percentage=40&p=2'));
 
     final document = parser.parse(response.body);
   print(document);
@@ -354,6 +346,27 @@ Future<List<Product>> getProducts() async {
 
   return products;
 }
+ScrollController _scrollController = ScrollController();
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _scrollController.addListener(() {
+  if (_scrollController.position.pixels ==
+      _scrollController.position.maxScrollExtent) {
+        widget.name == "Breakout" ?_getData():widget.name == "Bonanza" ?getProductsqq():widget.name == "Saya" ?getProducts():widget.name == "Bonanza" ?gulAhmad() :widget.name == "Khadi"? khadi(): widget.name == "LimeLight"? limeLight() : widget.name == "MariaB"?mariab():widget.name == "Outfitters" ? outfitterss():widget.name == "SanaSafinaz" ?sanasafinaz():widget.name == "SanaSafinaz" ?sanasafinaz():widget.name == "J."?NoSale(): widget.name == "Alkaram Studio"?NoSale() :widget.name == "NishatLinen" ?NoSale():  _getData();
+    // Fetch more data from the HTTP request
+  
+  }
+});
+
+  }
+  @override
+void dispose() {
+  _scrollController.dispose();
+  super.dispose();
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -365,6 +378,7 @@ Future<List<Product>> getProducts() async {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
+              controller: _scrollController,
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 final item = snapshot.data![index];

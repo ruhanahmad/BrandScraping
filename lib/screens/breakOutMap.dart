@@ -1520,6 +1520,8 @@ List<Marker> _markerKhadi = [];
   //================================================//
   List<Marker> _markerSanaSafinaz = [];
    LatLng markerPosition = LatLng(33.694800463538506, 73.0132787339014);
+    LatLng markerPositiontwo = LatLng(33.72080697344674, 73.05496928007238);
+    LatLng markerPositionthree = LatLng(33.543265089276474, 73.12483611836817);
  late  List<Marker> sanaSafinazMarkers = [
   
      Marker(markerId: MarkerId("1")
@@ -1527,7 +1529,7 @@ List<Marker> _markerKhadi = [];
    position:markerPosition,
    infoWindow: InfoWindow(
     title: "Sana Safinaz",
-     snippet: "Discounts",
+     snippet: "Discount",
         onTap: () async{
            navigateToMarker(markerPosition.latitude, markerPosition.longitude);
             //  var directions =       await  getDirections();
@@ -1543,19 +1545,21 @@ List<Marker> _markerKhadi = [];
 
    Marker(markerId: MarkerId("2")
    ,
-   position:LatLng(33.72080697344674, 73.05496928007238),
+   position:markerPositiontwo,
    infoWindow: InfoWindow(
     title: "Sana Safinaz",
      snippet: "Discount",
         onTap: () {
-          // hgya 
-                      Get.to(CardProductWrapperList(name:widget.name));// es py
+           navigateToMarker(markerPositiontwo.latitude, markerPositiontwo.longitude);
+        
+                      // Get.to(CardProductWrapperList(name:widget.name));
 
  
         },
     
    ),
    ),
+       
    Marker(markerId: MarkerId("3")
    ,
    position:LatLng(33.543265089276474, 73.12483611836817),
@@ -1563,8 +1567,9 @@ List<Marker> _markerKhadi = [];
     title: "Sana Safinaz",
      snippet: "Discount",
         onTap: () {
-          // hgya 
-                      Get.to(CardProductWrapperList(name:widget.name));// es py
+          // // hgya 
+          //             Get.to(CardProductWrapperList(name:widget.name));// es py
+            navigateToMarker(markerPositionthree.latitude, markerPositionthree.longitude);
 
  
         },
@@ -1578,8 +1583,9 @@ List<Marker> _markerKhadi = [];
     title: "Sana Safinaz",
      snippet: "Discount",
         onTap: () {
-          // hgya 
-                      Get.to(CardProductWrapperList(name:widget.name));// es py
+          // // hgya 
+          //             Get.to(CardProductWrapperList(name:widget.name));// es py
+            navigateToMarker(33.52309744318231, 73.15242779539236);
 
  
         },
@@ -1593,8 +1599,9 @@ List<Marker> _markerKhadi = [];
     title: "Sana Safinaz",
      snippet: "Discount",
         onTap: () {
-          // hgya 
-                      Get.to(CardProductWrapperList(name:widget.name));// es py
+           navigateToMarker(33.708146354032415, 73.04607578932301);
+          // // hgya 
+          //             Get.to(CardProductWrapperList(name:widget.name));// es py
 
  
         },
@@ -2303,9 +2310,7 @@ Marker(markerId: MarkerId("9")
 //       else{
 //         throw Exception("Failed to Load Data");
 //       }
-// aik baat hamesha yaad rakho g kn c sab  se pehle apne hathyar ache hone chahiye  ye hadis hay 
-// is dor k lehaz se hamaray hathyar ye computer laptop wagera hain 
-//     }
+
 
    Position? _currentPosition;
   @override
