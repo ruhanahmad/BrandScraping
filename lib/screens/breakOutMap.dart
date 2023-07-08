@@ -92,8 +92,8 @@ _polyline.add( Polyline(
     title: "Nishat Linen",
      snippet: "Discount",
         onTap: () {
-          
-                      Get.to(CardProductWrapperList(name:widget.name));// es py
+            navigateToMarker(33.72095825061273, 73.05682699758125);
+                      // Get.to(CardProductWrapperList(name:widget.name));
 
  
         },
@@ -107,8 +107,8 @@ _polyline.add( Polyline(
     title: "Nishat Linen",
      snippet: "Discount",
         onTap: () {
-          
-                      Get.to(CardProductWrapperList(name:widget.name));// es py
+           navigateToMarker(33.698149809685816, 73.00584683268212);
+                      // Get.to(CardProductWrapperList(name:widget.name));// es py
 
  
         },
@@ -122,8 +122,9 @@ _polyline.add( Polyline(
     title: "Nishat Linen",
      snippet: "Discount",
         onTap: () {
+            navigateToMarker(33.69529969586, 73.02876593099579);
           
-                      Get.to(CardProductWrapperList(name:widget.name));// es py
+                      // Get.to(CardProductWrapperList(name:widget.name));// es py
 
  
         },
